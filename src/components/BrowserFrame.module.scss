@@ -1,0 +1,230 @@
+.frame {
+  width: 100%;
+  border: 1px solid var(--neutral-border-medium);
+  border-radius: var(--radius-m);
+  overflow: hidden;
+  background: var(--page-background);
+  box-shadow: var(--shadow-m);
+}
+
+.chrome {
+  display: flex;
+  align-items: stretch;
+  min-height: 3rem;
+  padding: 0 var(--static-space-16) 0 var(--static-space-12);
+  background: var(--neutral-background-weak);
+  border-bottom: 1px solid var(--neutral-border-medium);
+}
+
+.trafficLights {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  align-self: center;
+  gap: 8px;
+  height: 2.25rem;
+  margin-left: var(--static-space-8);
+  margin-right: var(--static-space-16);
+  line-height: 0;
+}
+
+.dot {
+  display: block;
+  flex-shrink: 0;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  box-shadow:
+    inset 0 0 0 1px rgba(0, 0, 0, 0.08),
+    0 1px 2px rgba(0, 0, 0, 0.12);
+}
+
+.close {
+  background: #ff5f57;
+}
+
+.minimize {
+  background: #febc2e;
+}
+
+.maximize {
+  background: #28c840;
+}
+
+.tabStrip {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  min-width: 0;
+  flex: 1;
+  padding-top: var(--static-space-8);
+  overflow-x: auto;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.tab {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--static-space-8);
+  flex-shrink: 0;
+  max-width: 14rem;
+  height: 2.25rem;
+  padding: 0 var(--static-space-12);
+  border: 1px solid var(--neutral-border-medium);
+  border-bottom: none;
+  border-radius: var(--radius-s) var(--radius-s) 0 0;
+  position: relative;
+  font: inherit;
+  text-align: left;
+}
+
+.tabActive {
+  background: var(--page-background);
+  margin-bottom: -1px;
+  z-index: 2;
+  box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.tabInactive {
+  background: var(--neutral-background-medium);
+  margin-bottom: 0;
+  z-index: 1;
+  cursor: pointer;
+  color: var(--neutral-on-background-weak);
+  transition:
+    background var(--transition-micro-medium),
+    color var(--transition-micro-medium);
+
+  &:hover {
+    background: var(--neutral-background-strong);
+    color: var(--neutral-on-background-strong);
+  }
+}
+
+.tabIcon {
+  flex-shrink: 0;
+  width: 14px;
+  height: 14px;
+  color: var(--neutral-on-background-weak);
+}
+
+.tabLink,
+.tabLabel {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 13px;
+  line-height: 1.2;
+  font-family: var(--font-family-label);
+}
+
+.tabLink {
+  color: var(--neutral-on-background-strong);
+  text-decoration: none;
+  transition:
+    color var(--transition-micro-medium),
+    text-decoration-color var(--transition-micro-medium);
+
+  &:hover {
+    color: var(--brand-on-background-strong);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--brand-border-strong);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+}
+
+.tabLabel {
+  color: var(--neutral-on-background-weak);
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--page-background);
+  min-height: 12rem;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  max-height: min(70vh, 720px);
+  object-fit: contain;
+  object-position: center;
+  display: block;
+}
+
+.gallery {
+  position: relative;
+  width: 100%;
+}
+
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid var(--neutral-border-medium);
+  border-radius: 50%;
+  background: var(--neutral-background-medium);
+  color: var(--neutral-on-background-strong);
+  cursor: pointer;
+  opacity: 0.85;
+  transition: opacity var(--transition-micro-medium);
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &:disabled {
+    opacity: 0.35;
+    cursor: default;
+  }
+}
+
+.navPrev {
+  left: var(--static-space-8);
+}
+
+.navNext {
+  right: var(--static-space-8);
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  padding: var(--static-space-10);
+  background: var(--page-background);
+  border-top: 1px solid var(--neutral-border-weak);
+}
+
+.dotIndicator {
+  width: 6px;
+  height: 6px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: var(--neutral-border-strong);
+  cursor: pointer;
+  transition: background var(--transition-micro-medium);
+
+  &[data-active="true"] {
+    background: var(--brand-background-strong);
+  }
+}

@@ -67,3 +67,10 @@
   --scheme-neutral-600-50: rgba(137,152,159,0.5);
   /*
 }*/
+
+/* Portfolio images: avoid crop/zoom from default cover behavior */
+img[src*="/images/projects/"],
+img[src*="/images/gallery/"] {
+  object-fit: contain !important;
+  object-position: center !important;
+}

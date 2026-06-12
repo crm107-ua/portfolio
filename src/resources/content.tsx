@@ -1,49 +1,34 @@
 import { About, Blog, Gallery, Home, Newsletter, Person, Social, Work } from "@/types";
-import { Line, Row, Text } from "@once-ui-system/core";
+import { Row, Text } from "@once-ui-system/core";
 
 const person: Person = {
-  firstName: "Selene",
-  lastName: "Yu",
-  name: `Selene Yu`,
-  role: "Design Engineer",
-  avatar: "/images/avatar.jpg",
-  email: "example@gmail.com",
-  location: "Asia/Jakarta", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
-  languages: ["English", "Bahasa"], // optional: Leave the array empty if you don't want to display languages
+  firstName: "Carlos",
+  lastName: "Robles",
+  name: "Carlos Robles",
+  role: "Full-Stack & AI Engineer",
+  avatar: "/images/avatar.png",
+  email: "caromamusic@gmail.com",
+  location: "Europe/Madrid",
+  languages: ["Spanish (Native)", "English (B2)"],
 };
 
 const newsletter: Newsletter = {
-  display: true,
-  title: <>Subscribe to {person.firstName}'s Newsletter</>,
-  description: <>My weekly newsletter about creativity and engineering</>,
+  display: false,
+  title: <>Newsletter</>,
+  description: <>Not available.</>,
 };
 
 const social: Social = [
-  // Links are automatically displayed.
-  // Import new icons in /once-ui/icons.ts
-  // Set essentials: true for links you want to show on the about page
   {
     name: "GitHub",
     icon: "github",
-    link: "https://github.com/once-ui-system",
+    link: "https://github.com/crm107-ua",
     essential: true,
   },
   {
     name: "LinkedIn",
     icon: "linkedin",
-    link: "https://www.linkedin.com/company/once-ui/",
-    essential: true,
-  },
-  {
-    name: "Instagram",
-    icon: "instagram",
-    link: "https://www.instagram.com/once_ui/",
-    essential: false,
-  },
-  {
-    name: "Threads",
-    icon: "threads",
-    link: "https://www.threads.com/@once_ui",
+    link: "https://www.linkedin.com/in/carlos-robles-94105b159/",
     essential: true,
   },
   {
@@ -59,25 +44,34 @@ const home: Home = {
   image: "/images/og/home.jpg",
   label: "Home",
   title: `${person.name}'s Portfolio`,
-  description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>Building bridges between design and code</>,
+  description: `Portfolio of ${person.name}, ${person.role} based in Alicante, Spain`,
+  headline: (
+    <>
+      Full-stack engineer building web apps and applied AI.
+    </>
+  ),
   featured: {
     display: true,
     title: (
       <Row gap="12" vertical="center">
-        <strong className="ml-4">Once UI</strong>{" "}
-        <Line background="brand-alpha-strong" vert height="20" />
+        <strong className="ml-4">Warera</strong>
         <Text marginRight="4" onBackground="brand-medium">
-          Featured work
+          Featured project
         </Text>
       </Row>
     ),
-    href: "/work/building-once-ui-a-customizable-design-system",
+    href: "/work/warera",
   },
   subline: (
     <>
-    I'm Selene, a design engineer at <Text as="span" size="xl" weight="strong">ONCE UI</Text>, where I craft intuitive <br /> user experiences. After hours, I build my own projects.
-</>
+      I'm Carlos, a full-stack & AI engineer in{" "}
+      <Text as="span" size="xl" weight="strong">
+        Alicante, Spain
+      </Text>
+      . I ship production web products — SaaS, platforms, and community tools — and build day to day
+      with modern stacks plus AI-assisted development, from Symfony and Next.js to local LLMs and
+      RAG.
+    </>
   ),
 };
 
@@ -85,7 +79,7 @@ const about: About = {
   path: "/about",
   label: "About",
   title: `About – ${person.name}`,
-  description: `Meet ${person.name}, ${person.role} from ${person.location}`,
+  description: `Meet ${person.name}, ${person.role} based in Alicante, Spain`,
   tableOfContent: {
     display: true,
     subItems: false,
@@ -94,139 +88,160 @@ const about: About = {
     display: true,
   },
   calendar: {
-    display: true,
-    link: "https://cal.com",
+    display: false,
+    link: "",
   },
   intro: {
     display: true,
     title: "Introduction",
     description: (
       <>
-        Selene is a Jakarta-based design engineer with a passion for transforming complex challenges
-        into simple, elegant design solutions. Her work spans digital interfaces, interactive
-        experiences, and the convergence of design and technology.
+        Carlos is a full-stack engineer with 2 years of professional experience building web
+        applications with Symfony, Angular, Vue, and DevOps workflows. His focus is increasingly on
+        applied AI: deploying local LLMs (Ollama, llama.cpp), prompt evaluation, RAG pipelines,
+        and edge AI on devices like NVIDIA Jetson.
+        <br />
+        <br />
+        Contact: {person.email} · +34 637 088 497
       </>
     ),
   },
   work: {
-    display: true, // set to false to hide this section
+    display: true,
     title: "Work Experience",
     experiences: [
       {
-        company: "FLY",
-        timeframe: "2022 - Present",
-        role: "Senior Design Engineer",
+        company: "ADSALSA Group",
+        timeframe: "Sep 2024 – Apr 2026",
+        role: "Full-Stack Developer — Alcoy",
         achievements: [
           <>
-            Redesigned the UI/UX for the FLY platform, resulting in a 20% increase in user
-            engagement and 30% faster load times.
+            Designed, built and maintained full-stack web applications end to end — REST APIs and
+            business logic in Symfony (PHP), and reactive frontends in Angular and Vue.
           </>,
           <>
-            Spearheaded the integration of AI tools into design workflows, enabling designers to
-            iterate 50% faster.
+            Built and operated email delivery infrastructure with Postfix, handling high-volume
+            sending and deliverability.
+          </>,
+          <>
+            Developed email systems and marketing automation workflows running at scale.
+          </>,
+          <>
+            Set up and maintained CI/CD pipelines and containerized services with Docker and GitHub
+            Actions, deploying to Linux servers behind Nginx.
+          </>,
+          <>
+            Worked with relational databases (MySQL, PostgreSQL) for application data and reporting.
           </>,
         ],
-        images: [
-          // optional: leave the array empty if you don't want to display images
-          {
-            src: "/images/projects/project-01/cover-01.jpg",
-            alt: "Once UI Project",
-            width: 16,
-            height: 9,
-          },
-        ],
+        images: [],
       },
       {
-        company: "Creativ3",
-        timeframe: "2018 - 2022",
-        role: "Lead Designer",
+        company: "Doblemente S.L.",
+        timeframe: "Sep 2019 – Mar 2020",
+        role: "Backend Developer — Alcoy",
         achievements: [
           <>
-            Developed a design system that unified the brand across multiple platforms, improving
-            design consistency by 40%.
+            Developed and shipped web application improvements in C# / .NET, implementing backend
+            features and fixing production issues.
           </>,
           <>
-            Led a cross-functional team to launch a new product line, contributing to a 15% increase
-            in overall company revenue.
+            Administered and optimized MySQL and PostgreSQL databases, tuning queries and schema for
+            performance.
           </>,
+          <>Managed and maintained the Linux servers hosting the applications.</>,
         ],
         images: [],
       },
     ],
   },
   studies: {
-    display: true, // set to false to hide this section
+    display: true,
     title: "Studies",
     institutions: [
       {
-        name: "University of Jakarta",
-        description: <>Studied software engineering.</>,
+        name: "University of Alicante",
+        description: <>Computer Science Engineer (2020–2024)</>,
       },
       {
-        name: "Build the Future",
-        description: <>Studied online marketing and personal branding.</>,
+        name: "CIPFP Batoi, Alcoy",
+        description: <>Senior Technician in Web Application Development (2018–2020)</>,
       },
     ],
   },
   technical: {
-    display: true, // set to false to hide this section
+    display: true,
     title: "Technical skills",
     skills: [
       {
-        title: "Figma",
+        title: "AI / ML",
         description: (
-          <>Able to prototype in Figma with Once UI with unnatural speed.</>
+          <>Local LLMs, RAG pipelines, prompt evaluation, and edge AI deployments.</>
         ),
         tags: [
-          {
-            name: "Figma",
-            icon: "figma",
-          },
+          { name: "Local LLMs" },
+          { name: "Ollama" },
+          { name: "llama.cpp" },
+          { name: "RAG" },
+          { name: "Prompt Evaluation" },
+          { name: "Edge AI (Jetson)" },
         ],
-        // optional: leave the array empty if you don't want to display images
-        images: [
-          {
-            src: "/images/projects/project-01/cover-02.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
-          {
-            src: "/images/projects/project-01/cover-03.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
-        ],
+        images: [],
       },
       {
-        title: "Next.js",
-        description: (
-          <>Building next gen apps with Next.js + Once UI + Supabase.</>
-        ),
+        title: "Languages",
         tags: [
-          {
-            name: "JavaScript",
-            icon: "javascript",
-          },
-          {
-            name: "Next.js",
-            icon: "nextjs",
-          },
-          {
-            name: "Supabase",
-            icon: "supabase",
-          },
+          { name: "Python" },
+          { name: "C#/.NET" },
+          { name: "Java" },
+          { name: "TypeScript" },
+          { name: "JavaScript" },
+          { name: "PHP" },
         ],
-        // optional: leave the array empty if you don't want to display images
-        images: [
-          {
-            src: "/images/projects/project-01/cover-04.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
+        images: [],
+      },
+      {
+        title: "Backend",
+        tags: [
+          { name: "Symfony" },
+          { name: "Laravel" },
+          { name: "Flask" },
+          { name: "Node.js" },
+          { name: "Spring" },
         ],
+        images: [],
+      },
+      {
+        title: "Frontend",
+        tags: [
+          { name: "Angular" },
+          { name: "Vue" },
+          { name: "React" },
+          { name: "Next.js" },
+        ],
+        images: [],
+      },
+      {
+        title: "Data",
+        tags: [
+          { name: "MySQL" },
+          { name: "PostgreSQL" },
+          { name: "MongoDB" },
+          { name: "Redis" },
+        ],
+        images: [],
+      },
+      {
+        title: "DevOps",
+        tags: [
+          { name: "Docker" },
+          { name: "AWS" },
+          { name: "Linux" },
+          { name: "CI/CD" },
+          { name: "GitHub Actions" },
+          { name: "Nginx" },
+        ],
+        images: [],
       },
     ],
   },
@@ -235,70 +250,23 @@ const about: About = {
 const blog: Blog = {
   path: "/blog",
   label: "Blog",
-  title: "Writing about design and tech...",
-  description: `Read what ${person.name} has been up to recently`,
-  // Create new blog posts by adding a new .mdx file to app/blog/posts
-  // All posts will be listed on the /blog route
+  title: "Blog",
+  description: `Articles by ${person.name}`,
 };
 
 const work: Work = {
   path: "/work",
   label: "Work",
   title: `Projects – ${person.name}`,
-  description: `Design and dev projects by ${person.name}`,
-  // Create new project pages by adding a new .mdx file to app/blog/posts
-  // All projects will be listed on the /home and /work routes
+  description: `Web and AI projects by ${person.name}`,
 };
 
 const gallery: Gallery = {
   path: "/gallery",
   label: "Gallery",
-  title: `Photo gallery – ${person.name}`,
-  description: `A photo collection by ${person.name}`,
-  // Images by https://lorant.one
-  // These are placeholder images, replace with your own
-  images: [
-    {
-      src: "/images/gallery/horizontal-1.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/vertical-4.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
-    {
-      src: "/images/gallery/horizontal-3.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/vertical-1.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
-    {
-      src: "/images/gallery/vertical-2.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
-    {
-      src: "/images/gallery/horizontal-2.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/horizontal-4.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/vertical-3.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
-  ],
+  title: `Gallery – ${person.name}`,
+  description: `Photo gallery by ${person.name}`,
+  images: [],
 };
 
 export { person, social, newsletter, home, about, blog, work, gallery };

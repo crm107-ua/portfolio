@@ -2,15 +2,16 @@
 
 import {
   AvatarGroup,
-  Carousel,
   Column,
   Flex,
   Heading,
   SmartLink,
   Text,
 } from "@once-ui-system/core";
+import { PortfolioImageGallery } from "@/components/PortfolioImageGallery";
 
 interface ProjectCardProps {
+  slug: string;
   href: string;
   priority?: boolean;
   images: string[];
@@ -22,7 +23,9 @@ interface ProjectCardProps {
 }
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({
+  slug,
   href,
+  priority,
   images = [],
   title,
   content,
@@ -32,13 +35,15 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
 }) => {
   return (
     <Column fillWidth gap="m">
-      <Carousel
-        sizes="(max-width: 960px) 100vw, 960px"
-        items={images.map((image) => ({
-          slide: image,
-          alt: title,
-        }))}
-      />
+      {images.length > 0 && (
+        <PortfolioImageGallery
+          slug={slug}
+          images={images}
+          alt={title}
+          link={link}
+          priority={priority}
+        />
+      )}
       <Flex
         s={{ direction: "column" }}
         fillWidth

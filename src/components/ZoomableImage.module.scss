@@ -1,0 +1,47 @@
+.trigger {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: zoom-in;
+  overflow: hidden;
+
+  &:hover .badge {
+    opacity: 1;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--brand-border-strong);
+    outline-offset: 2px;
+    border-radius: var(--radius-s);
+  }
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: min(70vh, 720px);
+  object-fit: contain;
+  object-position: center;
+}
+
+.badge {
+  position: absolute;
+  right: var(--static-space-10);
+  bottom: var(--static-space-10);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--radius-s);
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  font-size: 14px;
+  opacity: 0;
+  transition: opacity var(--transition-micro-medium);
+  pointer-events: none;
+}

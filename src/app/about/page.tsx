@@ -5,7 +5,6 @@ import {
   Heading,
   Icon,
   IconButton,
-  Media,
   Tag,
   Text,
   Meta,
@@ -14,6 +13,7 @@ import {
 } from "@once-ui-system/core";
 import { baseURL, about, person, social } from "@/resources";
 import TableOfContents from "@/components/about/TableOfContents";
+import { PortfolioImage } from "@/components/PortfolioImage";
 import styles from "@/components/about/about.module.scss";
 import React from "react";
 
@@ -235,25 +235,15 @@ export default function About() {
                       )}
                     </Column>
                     {experience.images && experience.images.length > 0 && (
-                      <Row fillWidth paddingTop="m" paddingLeft="40" gap="12" wrap>
+                      <Column fillWidth paddingTop="m" paddingLeft="40" gap="12">
                         {experience.images.map((image, index) => (
-                          <Row
+                          <PortfolioImage
                             key={index}
-                            border="neutral-medium"
-                            radius="m"
-                            minWidth={image.width}
-                            height={image.height}
-                          >
-                            <Media
-                              enlarge
-                              radius="m"
-                              sizes={image.width.toString()}
-                              alt={image.alt}
-                              src={image.src}
-                            />
-                          </Row>
+                            src={image.src}
+                            alt={image.alt}
+                          />
                         ))}
-                      </Row>
+                      </Column>
                     )}
                   </Column>
                 ))}
@@ -310,25 +300,15 @@ export default function About() {
                       </Row>
                     )}
                     {skill.images && skill.images.length > 0 && (
-                      <Row fillWidth paddingTop="m" gap="12" wrap>
+                      <Column fillWidth paddingTop="m" gap="12">
                         {skill.images.map((image, index) => (
-                          <Row
+                          <PortfolioImage
                             key={index}
-                            border="neutral-medium"
-                            radius="m"
-                            minWidth={image.width}
-                            height={image.height}
-                          >
-                            <Media
-                              enlarge
-                              radius="m"
-                              sizes={image.width.toString()}
-                              alt={image.alt}
-                              src={image.src}
-                            />
-                          </Row>
+                            src={image.src}
+                            alt={image.alt}
+                          />
                         ))}
-                      </Row>
+                      </Column>
                     )}
                   </Column>
                 ))}

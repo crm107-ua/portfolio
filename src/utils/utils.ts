@@ -22,6 +22,7 @@ type Metadata = {
 };
 
 import { notFound } from "next/navigation";
+import { resolveProjectImages } from "@/utils/projectImages.server";
 
 function getMDXFiles(dir: string) {
   if (!fs.existsSync(dir)) {
@@ -61,7 +62,10 @@ function getMDXData(dir: string) {
     const slug = path.basename(file, path.extname(file));
 
     return {
-      metadata,
+      metadata: {
+        ...metadata,
+        images: resolveProjectImages(slug, metadata.images),
+      },
       slug,
       content,
     };

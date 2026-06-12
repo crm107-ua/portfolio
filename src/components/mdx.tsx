@@ -20,12 +20,12 @@ import {
   Row,
   Column,
   Icon,
-  Media,
   SmartLink,
   List,
   ListItem,
   Line,
 } from "@once-ui-system/core";
+import { PortfolioImage } from "@/components/PortfolioImage";
 
 type CustomLinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
   href: string;
@@ -63,17 +63,9 @@ function createImage({ alt, src, ...props }: MediaProps & { src: string }) {
   }
 
   return (
-    <Media
-      marginTop="8"
-      marginBottom="16"
-      enlarge
-      radius="m"
-      border="neutral-alpha-medium"
-      sizes="(max-width: 960px) 100vw, 960px"
-      alt={alt}
-      src={src}
-      {...props}
-    />
+    <Column marginTop="8" marginBottom="16" fillWidth>
+      <PortfolioImage src={src} alt={alt ?? ""} title={props.title as string | undefined} />
+    </Column>
   );
 }
 
@@ -200,7 +192,7 @@ const components = {
   Row,
   Column,
   Icon,
-  Media,
+  Media: createImage as any,
   SmartLink,
 };
 
