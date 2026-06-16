@@ -12,6 +12,7 @@ import {
   HiOutlineDocument,
   HiOutlineGlobeAsiaAustralia,
   HiOutlineRocketLaunch,
+  HiArrowDownTray,
 } from "react-icons/hi2";
 
 import {
@@ -20,6 +21,7 @@ import {
   PiGridFourDuotone,
   PiBookBookmarkDuotone,
   PiImageDuotone,
+  PiReadCvLogo,
 } from "react-icons/pi";
 
 import {
@@ -53,6 +55,8 @@ export const iconLibrary: Record<string, IconType> = {
   threads: FaThreads,
   arrowUpRightFromSquare: HiArrowTopRightOnSquare,
   document: HiOutlineDocument,
+  cv: PiReadCvLogo,
+  download: HiArrowDownTray,
   rocket: HiOutlineRocketLaunch,
   javascript: SiJavascript,
   nextjs: SiNextdotjs,

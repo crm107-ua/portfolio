@@ -9,6 +9,7 @@ import {
   Text,
 } from "@once-ui-system/core";
 import { PortfolioImageGallery } from "@/components/PortfolioImageGallery";
+import { useI18n } from "@/i18n";
 
 interface ProjectCardProps {
   slug: string;
@@ -33,13 +34,19 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   avatars,
   link,
 }) => {
+  const { t, dictionary } = useI18n();
+  const localized =
+    dictionary.projects[slug as keyof typeof dictionary.projects] ?? null;
+  const displayTitle = localized?.title ?? title;
+  const displayDescription = localized?.summary ?? description;
+
   return (
     <Column fillWidth gap="m">
       {images.length > 0 && (
         <PortfolioImageGallery
           slug={slug}
           images={images}
-          alt={title}
+          alt={displayTitle}
           link={link}
           priority={priority}
         />
@@ -52,19 +59,19 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         paddingBottom="24"
         gap="l"
       >
-        {title && (
+        {displayTitle && (
           <Flex flex={5}>
             <Heading as="h2" wrap="balance" variant="heading-strong-xl">
-              {title}
+              {displayTitle}
             </Heading>
           </Flex>
         )}
-        {(avatars?.length > 0 || description?.trim() || content?.trim()) && (
+        {(avatars?.length > 0 || displayDescription?.trim() || content?.trim()) && (
           <Column flex={7} gap="16">
             {avatars?.length > 0 && <AvatarGroup avatars={avatars} size="m" reverse />}
-            {description?.trim() && (
+            {displayDescription?.trim() && (
               <Text wrap="balance" variant="body-default-s" onBackground="neutral-weak">
-                {description}
+                {displayDescription}
               </Text>
             )}
             <Flex gap="24" wrap>
@@ -74,7 +81,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                   style={{ margin: "0", width: "fit-content" }}
                   href={href}
                 >
-                  <Text variant="body-default-s">Read case study</Text>
+                  <Text variant="body-default-s">{t("work.readCaseStudy")}</Text>
                 </SmartLink>
               )}
               {link && (
@@ -83,7 +90,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                   style={{ margin: "0", width: "fit-content" }}
                   href={link}
                 >
-                  <Text variant="body-default-s">View project</Text>
+                  <Text variant="body-default-s">{t("work.viewProject")}</Text>
                 </SmartLink>
               )}
             </Flex>

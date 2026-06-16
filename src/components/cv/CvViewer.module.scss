@@ -1,0 +1,53 @@
+.viewerShell {
+  width: 100%;
+  border: 1px solid var(--neutral-border-medium);
+  border-radius: var(--radius-m);
+  overflow: hidden;
+  background: var(--neutral-background-weak);
+  box-shadow: var(--shadow-m);
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--static-space-12);
+  flex-wrap: wrap;
+  padding: var(--static-space-12) var(--static-space-16);
+  border-bottom: 1px solid var(--neutral-border-weak);
+  background: var(--neutral-background-weak);
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: var(--static-space-10);
+  min-width: 0;
+}
+
+.fileName {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 13px;
+  color: var(--neutral-on-background-weak);
+  font-family: var(--font-family-label);
+}
+
+.viewer {
+  display: block;
+  width: 100%;
+  height: min(78vh, 1100px);
+  border: none;
+  background: var(--page-background);
+}
+
+@media (max-width: 768px) {
+  .viewer {
+    height: min(70vh, 900px);
+  }
+
+  .toolbar {
+    padding: var(--static-space-10) var(--static-space-12);
+  }
+}

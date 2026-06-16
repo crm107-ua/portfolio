@@ -224,6 +224,21 @@ export interface Blog extends BasePageConfig {}
 export interface Work extends BasePageConfig {}
 
 /**
+ * CV / resume page configuration.
+ */
+export interface Cv extends BasePageConfig {
+  /** Path to the PDF file in /public */
+  file: string;
+  /** Suggested filename when downloading */
+  downloadName: string;
+}
+
+/**
+ * Contact page configuration.
+ */
+export interface Contact extends BasePageConfig {}
+
+/**
  * Gallery page configuration.
  * @description Configuration for the Gallery page, including metadata, navigation label, and image list.
  */

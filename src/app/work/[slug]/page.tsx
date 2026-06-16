@@ -1,24 +1,17 @@
 import { notFound } from "next/navigation";
+import { Column } from "@once-ui-system/core";
 import { getPosts } from "@/utils/utils";
+import { Meta } from "@once-ui-system/core";
 import {
-  Meta,
-  Schema,
-  AvatarGroup,
-  Button,
-  Column,
-  Flex,
-  Heading,
-  Text,
-  SmartLink,
-  Row,
-  Avatar,
-  Line,
-} from "@once-ui-system/core";
-import { baseURL, about, person, work } from "@/resources";
-import { formatDate } from "@/utils/formatDate";
-import { ScrollToHash, CustomMDX, PortfolioImageGallery } from "@/components";
-import { Metadata } from "next";
+  ProjectDetailView,
+  ProjectRelatedHeading,
+} from "@/components/work/ProjectDetailView";
+import { ProjectMdxContent } from "@/components/work/ProjectMdxContent";
+import { ProjectMdxLocaleSync } from "@/components/work/ProjectMdxLocaleSync";
 import { Projects } from "@/components/work/Projects";
+import { getDictionary, getServerLocale } from "@/i18n/server";
+import { baseURL, work } from "@/resources";
+import { Metadata } from "next";
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
   const posts = getPosts(["src", "app", "work", "projects"]);
@@ -32,21 +25,27 @@ export async function generateMetadata({
 }: {
   params: Promise<{ slug: string | string[] }>;
 }): Promise<Metadata> {
+  const locale = await getServerLocale();
+  const dictionary = getDictionary(locale);
   const routeParams = await params;
   const slugPath = Array.isArray(routeParams.slug)
     ? routeParams.slug.join("/")
     : routeParams.slug || "";
 
   const posts = getPosts(["src", "app", "work", "projects"]);
-  let post = posts.find((post) => post.slug === slugPath);
-
+  const post = posts.find((item) => item.slug === slugPath);
   if (!post) return {};
 
+  const localized =
+    dictionary.projects[slugPath as keyof typeof dictionary.projects] ?? null;
+
   return Meta.generate({
-    title: post.metadata.title,
-    description: post.metadata.summary,
+    title: localized?.title ?? post.metadata.title,
+    description: localized?.summary ?? post.metadata.summary,
     baseURL: baseURL,
-    image: post.metadata.image || `/api/og/generate?title=${post.metadata.title}`,
+    image:
+      post.metadata.image ||
+      `/api/og/generate?title=${encodeURIComponent(localized?.title ?? post.metadata.title)}`,
     path: `${work.path}/${post.slug}`,
   });
 }
@@ -61,82 +60,26 @@ export default async function Project({
     ? routeParams.slug.join("/")
     : routeParams.slug || "";
 
-  let post = getPosts(["src", "app", "work", "projects"]).find((post) => post.slug === slugPath);
+  const post = getPosts(["src", "app", "work", "projects"]).find((item) => item.slug === slugPath);
 
   if (!post) {
     notFound();
   }
 
-  const avatars =
-    post.metadata.team?.map((person) => ({
-      src: person.avatar,
-    })) || [];
-
   return (
-    <Column as="section" maxWidth="m" horizontal="center" gap="l">
-      <Schema
-        as="blogPosting"
-        baseURL={baseURL}
-        path={`${work.path}/${post.slug}`}
-        title={post.metadata.title}
-        description={post.metadata.summary}
-        datePublished={post.metadata.publishedAt}
-        dateModified={post.metadata.publishedAt}
-        image={
-          post.metadata.image || `/api/og/generate?title=${encodeURIComponent(post.metadata.title)}`
-        }
-        author={{
-          name: person.name,
-          url: `${baseURL}${about.path}`,
-          image: `${baseURL}${person.avatar}`,
-        }}
-      />
-      <Column maxWidth="s" gap="16" horizontal="center" align="center">
-        <SmartLink href="/work">
-          <Text variant="label-strong-m">Projects</Text>
-        </SmartLink>
-        <Text variant="body-default-xs" onBackground="neutral-weak" marginBottom="12">
-          {post.metadata.publishedAt && formatDate(post.metadata.publishedAt)}
-        </Text>
-        <Heading variant="display-strong-m">{post.metadata.title}</Heading>
-      </Column>
-      <Row marginBottom="32" horizontal="center">
-        <Row gap="16" vertical="center">
-          {post.metadata.team && <AvatarGroup reverse avatars={avatars} size="s" />}
-          <Text variant="label-default-m" onBackground="brand-weak">
-            {post.metadata.team?.map((member, idx) => (
-              <span key={idx}>
-                {idx > 0 && (
-                  <Text as="span" onBackground="neutral-weak">
-                    ,{" "}
-                  </Text>
-                )}
-                <SmartLink href={member.linkedIn}>{member.name}</SmartLink>
-              </span>
-            ))}
-          </Text>
-        </Row>
-      </Row>
-      {post.metadata.images.length > 0 && (
-        <PortfolioImageGallery
-          slug={post.slug}
-          priority
-          images={post.metadata.images}
-          alt={post.metadata.title}
-          link={post.metadata.link}
-        />
-      )}
-      <Column style={{ margin: "auto" }} as="article" maxWidth="xs">
-        <CustomMDX source={post.content} />
-      </Column>
-      <Column fillWidth gap="40" horizontal="center" marginTop="40">
-        <Line maxWidth="40" />
-        <Heading as="h2" variant="heading-strong-xl" marginBottom="24">
-          Related projects
-        </Heading>
-        <Projects exclude={[post.slug]} range={[2]} />
-      </Column>
-      <ScrollToHash />
+    <Column horizontal="center">
+      <ProjectDetailView
+        slug={post.slug}
+        publishedAt={post.metadata.publishedAt}
+        images={post.metadata.images}
+        link={post.metadata.link}
+        team={post.metadata.team}
+      >
+        <ProjectMdxLocaleSync />
+        <ProjectMdxContent slug={post.slug} />
+      </ProjectDetailView>
+      <ProjectRelatedHeading />
+      <Projects exclude={[post.slug]} range={[2]} />
     </Column>
   );
 }

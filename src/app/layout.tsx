@@ -14,12 +14,17 @@ import {
   SpacingToken,
 } from "@once-ui-system/core";
 import { Footer, Header, RouteGuard, Providers } from "@/components";
+import { getDictionary, getServerLocale } from "@/i18n/server";
+import { LOCALE_COOKIE, defaultLocale } from "@/i18n/config";
 import { baseURL, effects, fonts, style, dataStyle, home } from "@/resources";
 
 export async function generateMetadata() {
+  const locale = await getServerLocale();
+  const dictionary = getDictionary(locale);
+
   return Meta.generate({
-    title: home.title,
-    description: home.description,
+    title: dictionary.meta.home.title,
+    description: dictionary.meta.home.description,
     baseURL: baseURL,
     path: home.path,
     image: home.image,
@@ -31,11 +36,13 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const initialLocale = await getServerLocale();
+
   return (
     <Flex
       suppressHydrationWarning
       as="html"
-      lang="en"
+      lang={initialLocale}
       fillWidth
       className={classNames(
         fonts.heading.variable,
@@ -45,6 +52,22 @@ export default async function RootLayout({
       )}
     >
       <head>
+        <script
+          id="locale-init"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  const key = ${JSON.stringify(LOCALE_COOKIE)};
+                  const stored = localStorage.getItem(key);
+                  const match = document.cookie.match(new RegExp('(?:^|; )' + key + '=([^;]*)'));
+                  const locale = stored || (match && match[1]) || ${JSON.stringify(defaultLocale)};
+                  document.documentElement.lang = locale;
+                } catch (e) {}
+              })();
+            `,
+          }}
+        />
         <script
           id="theme-init"
           dangerouslySetInnerHTML={{
@@ -103,7 +126,7 @@ export default async function RootLayout({
           }}
         />
       </head>
-      <Providers>
+      <Providers initialLocale={initialLocale}>
         <Column
           as="body"
           background="page"

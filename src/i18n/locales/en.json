@@ -1,0 +1,243 @@
+{
+  "meta": {
+    "home": {
+      "title": "Carlos Robles's Portfolio",
+      "description": "Portfolio of Carlos Robles, Full-Stack & AI Engineer based in Alicante, Spain"
+    },
+    "about": {
+      "title": "About – Carlos Robles",
+      "description": "Meet Carlos Robles, Full-Stack & AI Engineer based in Alicante, Spain"
+    },
+    "work": {
+      "title": "Projects – Carlos Robles",
+      "description": "Web and AI projects by Carlos Robles"
+    },
+    "contact": {
+      "title": "Contact – Carlos Robles",
+      "description": "Contact Carlos Robles, Full-Stack & AI Engineer"
+    },
+    "cv": {
+      "title": "CV – Carlos Robles",
+      "description": "Resume of Carlos Robles, Full-Stack & AI Engineer"
+    }
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "work": "Work",
+    "contact": "Contact",
+    "cv": "CV",
+    "blog": "Blog",
+    "gallery": "Gallery"
+  },
+  "language": {
+    "switchTo": "Switch to {{language}}",
+    "ariaLabel": "Language"
+  },
+  "person": {
+    "name": "Carlos Robles",
+    "role": "Full-Stack & AI Engineer",
+    "location": "Europe/Madrid",
+    "languages": ["Spanish (Native)", "English (B2)"]
+  },
+  "home": {
+    "headline": "Full-stack engineer building web apps and applied AI.",
+    "featuredBadge": "Featured project",
+    "featuredName": "Warera",
+    "subline": "I'm Carlos, a full-stack & AI engineer in Alicante, Spain. I ship production web products — SaaS, platforms, and community tools — and build day to day with modern stacks plus AI-assisted development, from Symfony and Next.js to local LLMs and RAG.",
+    "sublineLocation": "Alicante, Spain",
+    "aboutCta": "About – Carlos Robles",
+    "latestBlog": "Latest from the blog"
+  },
+  "about": {
+    "scheduleCall": "Schedule a call",
+    "intro": {
+      "title": "Introduction",
+      "description": "Carlos is a full-stack engineer with 2 years of professional experience building web applications with Symfony, Angular, Vue, and DevOps workflows. His focus is increasingly on applied AI: deploying local LLMs (Ollama, llama.cpp), prompt evaluation, RAG pipelines, and edge AI on devices like NVIDIA Jetson.\n\nContact: caromamusic@gmail.com · +34 637 088 497"
+    },
+    "work": {
+      "title": "Work Experience",
+      "experiences": [
+        {
+          "company": "ADSALSA Group",
+          "timeframe": "Sep 2024 – Apr 2026",
+          "role": "Full-Stack Developer — Alcoy",
+          "achievements": [
+            "Designed, built and maintained full-stack web applications end to end — REST APIs and business logic in Symfony (PHP), and reactive frontends in Angular and Vue.",
+            "Built and operated email delivery infrastructure with Postfix, handling high-volume sending and deliverability.",
+            "Developed email systems and marketing automation workflows running at scale.",
+            "Set up and maintained CI/CD pipelines and containerized services with Docker and GitHub Actions, deploying to Linux servers behind Nginx.",
+            "Worked with relational databases (MySQL, PostgreSQL) for application data and reporting."
+          ]
+        },
+        {
+          "company": "Doblemente S.L.",
+          "timeframe": "Sep 2019 – Mar 2020",
+          "role": "Backend Developer — Alcoy",
+          "achievements": [
+            "Developed and shipped web application improvements in C# / .NET, implementing backend features and fixing production issues.",
+            "Administered and optimized MySQL and PostgreSQL databases, tuning queries and schema for performance.",
+            "Managed and maintained the Linux servers hosting the applications."
+          ]
+        }
+      ]
+    },
+    "studies": {
+      "title": "Studies",
+      "institutions": [
+        {
+          "name": "University of Alicante",
+          "description": "Computer Science Engineer (2020–2024)"
+        },
+        {
+          "name": "CIPFP Batoi, Alcoy",
+          "description": "Senior Technician in Web Application Development (2018–2020)"
+        }
+      ]
+    },
+    "technical": {
+      "title": "Technical skills",
+      "skills": [
+        {
+          "title": "AI / ML",
+          "description": "Local LLMs, RAG pipelines, prompt evaluation, and edge AI deployments."
+        },
+        {
+          "title": "Languages",
+          "description": ""
+        },
+        {
+          "title": "Backend",
+          "description": ""
+        },
+        {
+          "title": "Frontend",
+          "description": ""
+        },
+        {
+          "title": "Data",
+          "description": ""
+        },
+        {
+          "title": "DevOps",
+          "description": ""
+        }
+      ]
+    }
+  },
+  "work": {
+    "title": "Projects",
+    "projectsLabel": "Projects",
+    "relatedProjects": "Related projects",
+    "readCaseStudy": "Read case study",
+    "viewProject": "View project"
+  },
+  "projects": {
+    "warera": {
+      "title": "Warera — A complete web OS for gaming communities",
+      "summary": "A complete web operating system for online gaming communities: file indexing and an API layer interconnecting multiple games and Discord, all in one place.",
+      "body": "## Overview\n\nWarera is a complete web operating system for online gaming communities. It provides a desktop-like web environment with file indexing and an API layer that interconnects multiple games and Discord, so a community can manage data, coordinate strategy and run tools from a single place. Authentication is handled through Discord, so members log in with the account they already use.\n\n## Key Features\n\n- Web OS environment with a desktop-like, windowed UI\n- File indexing and management\n- API interconnection across multiple games and Discord\n- Real-time strategic dashboards for community coordination\n- Discord-based single sign-on\n\n## Target Audience\n\nCompetitive online gaming communities — clans and alliances that coordinate through Discord and need centralized tooling. The first deployment serves the WarEra España community.\n\n## Business Opportunity\n\nA subscription model per community, plus a white-label / multi-game model where the same web OS can be deployed for other games' communities. Discord-native distribution keeps user acquisition cost low.\n\n## Tech Stack\n\n- **Framework:** Next.js (App Router)\n- **API:** tRPC (end-to-end type safety)\n- **Auth:** NextAuth with Discord provider\n- **Database:** MySQL with Prisma ORM\n- **Styling:** Tailwind CSS"
+    },
+    "lesly": {
+      "title": "Lesly — Full-stack web app with auth & admin dashboard",
+      "summary": "Multiplatform live concert streaming app with full authentication, social login, and an admin dashboard. v1 web (Laravel) and v2 mobile (Flutter), both with a Laravel backend.",
+      "body": "## Overview\n\nMultiplatform application for live concert streaming. The first version shipped as a responsive web app with a Laravel frontend; the second version moved the client to Flutter while keeping Laravel as the backend in both iterations. Includes a complete authentication system (sign-up, login, password reset, Facebook OAuth) and an admin dashboard.\n\n## Key Features\n\n- **Auth + social login**: Sign-up, login, password reset, and Facebook OAuth.\n- **Admin dashboard**: Content and user management for operators.\n- **Responsive UI**: Web-first experience in v1; native mobile in v2.\n- **Live streaming**: Concert broadcast workflows across both versions.\n\n## Target Audience\n\nLive-music fans, and artists or venues that want to stream and watch live concerts across web and mobile.\n\n## Business Opportunity\n\nPay-per-view ticketing for live events, subscriptions, and revenue share with artists and venues.\n\n## Tech Stack\n\n- **Web:** Laravel (PHP)\n- **Mobile app:** Flutter\n- **Database:** MySQL"
+    },
+    "olvida": {
+      "title": "Olvida — Reduce your digital footprint",
+      "summary": "Platform that helps users shrink their online footprint through automated, legally-compliant data-removal processes, always under the user's express authorization.",
+      "body": "## Overview\n\nOlvida is a platform that helps people reduce their digital footprint on the internet. It automates data-removal and opt-out processes against third parties through legally-compliant workflows, always executed under the user's express authorization. The goal is to give individuals back control over their personal data with minimal effort on their side.\n\n## Key Features\n\n- Automated data-removal / opt-out workflows\n- Legally-compliant processes with explicit user consent\n- Clean, accessible UI built on a modern component system\n\n## Target Audience\n\nPrivacy-conscious individuals in the EU who want to remove or limit their personal data online without doing it manually.\n\n## Business Opportunity\n\nA recurring subscription privacy service (in the space of Incogni or DeleteMe), with B2C recurring revenue and potential B2B use cases such as employee data offboarding.\n\n## Tech Stack\n\n- **Framework:** Next.js 14 (App Router)\n- **Language:** TypeScript\n- **Styling:** Tailwind CSS\n- **Components:** shadcn/ui"
+    },
+    "ebisu": {
+      "title": "eBISU — Sales & payments management platform",
+      "summary": "SaaS platform to manage a business's sales and payments with transaction history, analytics, ticketing, and a public API. University of Alicante project.",
+      "body": "## Overview\n\nSaaS platform to manage a business's sales and payments: full transaction history, advanced analytics dashboard, ticketing support, and a public API for integrations. Developed as a University of Alicante project.\n\n## Key Features\n\n- **Transaction history**: Complete record of sales and payment events.\n- **Analytics dashboard**: Business metrics and visual insights.\n- **Secure payments**: Payment processing with audit trail.\n- **Public REST API**: Endpoints for third-party integrations.\n\n## Target Audience\n\nSmall and medium businesses and merchants that need to track sales, payments and transactions with analytics in one dashboard.\n\n## Business Opportunity\n\nSaaS subscription tiers, with potential transaction/processing fees and paid API access for third-party integrations.\n\n## Tech Stack\n\n- **Backend:** Laravel (PHP)\n- **Frontend:** Blade templates + jQuery\n- **Database:** MySQL\n- **API:** REST (public API for integrations)"
+    },
+    "tusofertasdehoy": {
+      "title": "TusOfertasDeHoy — Daily deals aggregator",
+      "summary": "Web platform that aggregates and displays daily product deals and offers with affiliate links.",
+      "body": "## Overview\n\nWeb platform that aggregates and displays daily product deals and offers with affiliate links. Users can browse curated deals, compare prices, and follow outbound links to partner stores.\n\n## Key Features\n\n- **Deals listing**: Daily refreshed catalog of product offers.\n- **Product cards with prices**: Structured cards with pricing and deal metadata.\n- **Affiliate integration**: Outbound tracking links to partner retailers.\n\n## Target Audience\n\nBargain hunters and deal seekers in Spain looking for daily curated product offers.\n\n## Business Opportunity\n\nAffiliate commissions (Amazon and others) plus display advertising. The n8n automation keeps content fresh at near-zero marginal cost, which makes the model scalable.\n\n## Tech Stack\n\n- **Frontend:** Next.js\n- **Backend:** Node.js 18+\n- **Database:** MySQL\n- **Automation:** n8n (automated deal aggregation & updates)"
+    }
+  },
+  "contact": {
+    "title": "Get in touch",
+    "description": "Send a message about a project, collaboration, or opportunity.",
+    "fields": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Message"
+    },
+    "placeholders": {
+      "name": "Your name",
+      "email": "you@email.com",
+      "message": "Tell me about your project or idea..."
+    },
+    "hints": {
+      "name": "{{current}}/{{max}} · min {{min}}",
+      "email": "I will reply to this address",
+      "message": "{{current}}/{{max}} · min {{min}}"
+    },
+    "buttons": {
+      "loading": "Loading...",
+      "sending": "Sending...",
+      "send": "Send message"
+    },
+    "success": {
+      "title": "Message sent",
+      "description": "Thanks for reaching out. I will get back to you soon."
+    },
+    "errors": {
+      "formInvalid": "Please fix the highlighted fields before sending.",
+      "initFailed": "Unable to initialize the form.",
+      "sendFailed": "Unable to send your message.",
+      "network": "Network error. Check your connection and try again.",
+      "sessionExpired": "Your session expired. Refresh the page and try again.",
+      "rateLimit": "Too many requests. Please wait 15 minutes before trying again.",
+      "server": "The message could not be sent. Please try again in a few minutes.",
+      "fields": {
+        "name": {
+          "required": "Name is required.",
+          "min": "Name must be at least {{min}} characters (currently {{current}}).",
+          "max": "Name must be at most {{max}} characters (currently {{current}})."
+        },
+        "email": {
+          "required": "Email is required.",
+          "invalid": "Enter a valid email address (e.g. name@domain.com).",
+          "max": "Email must be at most {{max}} characters."
+        },
+        "message": {
+          "required": "Message is required.",
+          "min": "Message must be at least {{min}} characters (currently {{current}}).",
+          "max": "Message must be at most {{max}} characters (currently {{current}})."
+        }
+      }
+    }
+  },
+  "cv": {
+    "subtitle": "Full-stack & AI engineer — preview or download below.",
+    "open": "Open",
+    "download": "Download",
+    "downloadName": "Carlos-Robles-CV-2026.pdf"
+  },
+  "theme": {
+    "switchTo": "Switch to {{mode}} mode",
+    "light": "light",
+    "dark": "dark"
+  },
+  "notFound": {
+    "code": "404",
+    "title": "Page Not Found",
+    "description": "The page you are looking for does not exist."
+  },
+  "social": {
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "email": "Email"
+  },
+  "dates": {
+    "justNow": "just now",
+    "minutesAgo": "{{count}}m ago",
+    "hoursAgo": "{{count}}h ago",
+    "daysAgo": "{{count}}d ago"
+  }
+}

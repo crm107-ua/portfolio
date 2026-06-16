@@ -1,0 +1,48 @@
+.switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--neutral-border-medium);
+  background: var(--page-background);
+}
+
+.option {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 24px;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-full);
+  background: transparent;
+  cursor: pointer;
+  opacity: 0.55;
+  transition:
+    opacity var(--transition-micro-medium),
+    background var(--transition-micro-medium),
+    box-shadow var(--transition-micro-medium);
+
+  &:hover {
+    opacity: 0.85;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--brand-border-strong);
+    outline-offset: 1px;
+  }
+}
+
+.active {
+  opacity: 1;
+  background: var(--neutral-background-weak);
+  box-shadow: var(--shadow-s);
+}
+
+.flag {
+  display: block;
+  border-radius: 2px;
+  overflow: hidden;
+}

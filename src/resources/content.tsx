@@ -1,4 +1,4 @@
-import { About, Blog, Gallery, Home, Newsletter, Person, Social, Work } from "@/types";
+import { About, Blog, Contact, Cv, Gallery, Home, Newsletter, Person, Social, Work } from "@/types";
 import { Row, Text } from "@once-ui-system/core";
 
 const person: Person = {
@@ -261,6 +261,22 @@ const work: Work = {
   description: `Web and AI projects by ${person.name}`,
 };
 
+const cv: Cv = {
+  path: "/cv",
+  label: "CV",
+  title: `CV – ${person.name}`,
+  description: `Resume of ${person.name}, ${person.role}`,
+  file: "/cv/CV2026.pdf",
+  downloadName: "Carlos-Robles-CV-2026.pdf",
+};
+
+const contact: Contact = {
+  path: "/contact",
+  label: "Contact",
+  title: `Contact – ${person.name}`,
+  description: `Contact ${person.name}, ${person.role}`,
+};
+
 const gallery: Gallery = {
   path: "/gallery",
   label: "Gallery",
@@ -269,4 +285,4 @@ const gallery: Gallery = {
   images: [],
 };
 
-export { person, social, newsletter, home, about, blog, work, gallery };
+export { person, social, newsletter, home, about, blog, work, cv, contact, gallery };

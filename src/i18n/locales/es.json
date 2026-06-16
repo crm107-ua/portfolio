@@ -1,0 +1,243 @@
+{
+  "meta": {
+    "home": {
+      "title": "Portfolio de Carlos Robles",
+      "description": "Portfolio de Carlos Robles, ingeniero Full-Stack e IA, con base en Alicante, España"
+    },
+    "about": {
+      "title": "Sobre mí – Carlos Robles",
+      "description": "Conoce a Carlos Robles, ingeniero Full-Stack e IA, con base en Alicante, España"
+    },
+    "work": {
+      "title": "Proyectos – Carlos Robles",
+      "description": "Proyectos web e IA de Carlos Robles"
+    },
+    "contact": {
+      "title": "Contacto – Carlos Robles",
+      "description": "Contacta con Carlos Robles, ingeniero Full-Stack e IA"
+    },
+    "cv": {
+      "title": "CV – Carlos Robles",
+      "description": "Currículum de Carlos Robles, ingeniero Full-Stack e IA"
+    }
+  },
+  "nav": {
+    "home": "Inicio",
+    "about": "Sobre mí",
+    "work": "Proyectos",
+    "contact": "Contacto",
+    "cv": "CV",
+    "blog": "Blog",
+    "gallery": "Galería"
+  },
+  "language": {
+    "switchTo": "Cambiar a {{language}}",
+    "ariaLabel": "Idioma"
+  },
+  "person": {
+    "name": "Carlos Robles",
+    "role": "Ingeniero Full-Stack e IA",
+    "location": "Europe/Madrid",
+    "languages": ["Español (nativo)", "Inglés (B2)"]
+  },
+  "home": {
+    "headline": "Ingeniero full-stack que construye aplicaciones web e IA aplicada.",
+    "featuredBadge": "Proyecto destacado",
+    "featuredName": "Warera",
+    "subline": "Soy Carlos, ingeniero full-stack e IA en Alicante, España. Desarrollo productos web en producción — SaaS, plataformas y herramientas para comunidades — con stacks modernos e IA asistida, desde Symfony y Next.js hasta LLMs locales y RAG.",
+    "sublineLocation": "Alicante, España",
+    "aboutCta": "Sobre mí – Carlos Robles",
+    "latestBlog": "Lo último del blog"
+  },
+  "about": {
+    "scheduleCall": "Agendar una llamada",
+    "intro": {
+      "title": "Introducción",
+      "description": "Carlos es ingeniero full-stack con 2 años de experiencia profesional desarrollando aplicaciones web con Symfony, Angular, Vue y flujos DevOps. Su enfoque se orienta cada vez más a la IA aplicada: despliegue de LLMs locales (Ollama, llama.cpp), evaluación de prompts, pipelines RAG e IA en el edge con dispositivos como NVIDIA Jetson.\n\nContacto: caromamusic@gmail.com · +34 637 088 497"
+    },
+    "work": {
+      "title": "Experiencia laboral",
+      "experiences": [
+        {
+          "company": "ADSALSA Group",
+          "timeframe": "Sep 2024 – Abr 2026",
+          "role": "Desarrollador Full-Stack — Alcoy",
+          "achievements": [
+            "Diseñó, desarrolló y mantuvo aplicaciones web full-stack de extremo a extremo: APIs REST y lógica de negocio en Symfony (PHP), y frontends reactivos en Angular y Vue.",
+            "Construyó y operó infraestructura de envío de correo con Postfix, gestionando alto volumen y entregabilidad.",
+            "Desarrolló sistemas de email y flujos de automatización de marketing a escala.",
+            "Configuró y mantuvo pipelines CI/CD y servicios containerizados con Docker y GitHub Actions, desplegando en servidores Linux detrás de Nginx.",
+            "Trabajó con bases de datos relacionales (MySQL, PostgreSQL) para datos de aplicación e informes."
+          ]
+        },
+        {
+          "company": "Doblemente S.L.",
+          "timeframe": "Sep 2019 – Mar 2020",
+          "role": "Desarrollador Backend — Alcoy",
+          "achievements": [
+            "Desarrolló y entregó mejoras en aplicaciones web en C# / .NET, implementando funcionalidades backend y corrigiendo incidencias en producción.",
+            "Administró y optimizó bases de datos MySQL y PostgreSQL, afinando consultas y esquemas para rendimiento.",
+            "Gestionó y mantuvo los servidores Linux que alojaban las aplicaciones."
+          ]
+        }
+      ]
+    },
+    "studies": {
+      "title": "Formación",
+      "institutions": [
+        {
+          "name": "Universidad de Alicante",
+          "description": "Ingeniero en Informática (2020–2024)"
+        },
+        {
+          "name": "CIPFP Batoi, Alcoy",
+          "description": "Técnico Superior en Desarrollo de Aplicaciones Web (2018–2020)"
+        }
+      ]
+    },
+    "technical": {
+      "title": "Habilidades técnicas",
+      "skills": [
+        {
+          "title": "IA / ML",
+          "description": "LLMs locales, pipelines RAG, evaluación de prompts y despliegues de IA en el edge."
+        },
+        {
+          "title": "Lenguajes",
+          "description": ""
+        },
+        {
+          "title": "Backend",
+          "description": ""
+        },
+        {
+          "title": "Frontend",
+          "description": ""
+        },
+        {
+          "title": "Datos",
+          "description": ""
+        },
+        {
+          "title": "DevOps",
+          "description": ""
+        }
+      ]
+    }
+  },
+  "work": {
+    "title": "Proyectos",
+    "projectsLabel": "Proyectos",
+    "relatedProjects": "Proyectos relacionados",
+    "readCaseStudy": "Leer caso de estudio",
+    "viewProject": "Ver proyecto"
+  },
+  "projects": {
+    "warera": {
+      "title": "Warera — Un web OS completo para comunidades gaming",
+      "summary": "Sistema operativo web completo para comunidades de videojuegos online: indexación de archivos y capa API que interconecta múltiples juegos y Discord, todo en un solo lugar.",
+      "body": "## Resumen\n\nWarera es un sistema operativo web completo para comunidades de videojuegos online. Ofrece un entorno web tipo escritorio con indexación de archivos y una capa API que interconecta múltiples juegos y Discord, para que una comunidad gestione datos, coordine estrategia y ejecute herramientas desde un solo lugar. La autenticación se realiza con Discord, de modo que los miembros acceden con la cuenta que ya utilizan.\n\n## Características principales\n\n- Entorno web OS con interfaz tipo escritorio y ventanas\n- Indexación y gestión de archivos\n- Interconexión API entre múltiples juegos y Discord\n- Paneles estratégicos en tiempo real para coordinación comunitaria\n- Inicio de sesión único con Discord\n\n## Público objetivo\n\nComunidades competitivas de videojuegos online — clanes y alianzas que coordinan por Discord y necesitan herramientas centralizadas. El primer despliegue sirve a la comunidad WarEra España.\n\n## Oportunidad de negocio\n\nModelo de suscripción por comunidad, más un modelo white-label / multi-juego donde el mismo web OS puede desplegarse para comunidades de otros juegos. La distribución nativa en Discord mantiene bajo el coste de adquisición de usuarios.\n\n## Stack tecnológico\n\n- **Framework:** Next.js (App Router)\n- **API:** tRPC (tipado de extremo a extremo)\n- **Auth:** NextAuth con proveedor Discord\n- **Base de datos:** MySQL con Prisma ORM\n- **Estilos:** Tailwind CSS"
+    },
+    "lesly": {
+      "title": "Lesly — App web full-stack con auth y panel de administración",
+      "summary": "App multiplataforma de streaming de conciertos en vivo con autenticación completa, login social y panel de administración. v1 web (Laravel) y v2 móvil (Flutter), ambas con backend Laravel.",
+      "body": "## Resumen\n\nAplicación multiplataforma para streaming de conciertos en vivo. La primera versión se lanzó como web responsive con frontend Laravel; la segunda migró el cliente a Flutter manteniendo Laravel como backend en ambas iteraciones. Incluye un sistema de autenticación completo (registro, login, recuperación de contraseña, OAuth de Facebook) y un panel de administración.\n\n## Características principales\n\n- **Auth + login social**: Registro, login, recuperación de contraseña y OAuth de Facebook.\n- **Panel de administración**: Gestión de contenido y usuarios para operadores.\n- **UI responsive**: Experiencia web-first en v1; móvil nativo en v2.\n- **Streaming en vivo**: Flujos de emisión de conciertos en ambas versiones.\n\n## Público objetivo\n\nAficionados a la música en vivo, y artistas o salas que quieren emitir y ver conciertos en directo en web y móvil.\n\n## Oportunidad de negocio\n\nEntradas pay-per-view para eventos en vivo, suscripciones y reparto de ingresos con artistas y salas.\n\n## Stack tecnológico\n\n- **Web:** Laravel (PHP)\n- **App móvil:** Flutter\n- **Base de datos:** MySQL"
+    },
+    "olvida": {
+      "title": "Olvida — Reduce tu huella digital",
+      "summary": "Plataforma que ayuda a los usuarios a reducir su huella online mediante procesos automatizados y legales de eliminación de datos, siempre bajo la autorización expresa del usuario.",
+      "body": "## Resumen\n\nOlvida es una plataforma que ayuda a las personas a reducir su huella digital en internet. Automatiza procesos de eliminación de datos y opt-out frente a terceros mediante flujos legalmente conformes, siempre ejecutados bajo la autorización expresa del usuario. El objetivo es devolver el control de los datos personales con el mínimo esfuerzo.\n\n## Características principales\n\n- Flujos automatizados de eliminación de datos / opt-out\n- Procesos legalmente conformes con consentimiento explícito del usuario\n- Interfaz limpia y accesible sobre un sistema de componentes moderno\n\n## Público objetivo\n\nPersonas preocupadas por la privacidad en la UE que quieren eliminar o limitar sus datos personales online sin hacerlo manualmente.\n\n## Oportunidad de negocio\n\nServicio de privacidad por suscripción recurrente (en el espacio de Incogni o DeleteMe), con ingresos B2C recurrentes y posibles casos B2B como offboarding de datos de empleados.\n\n## Stack tecnológico\n\n- **Framework:** Next.js 14 (App Router)\n- **Lenguaje:** TypeScript\n- **Estilos:** Tailwind CSS\n- **Componentes:** shadcn/ui"
+    },
+    "ebisu": {
+      "title": "eBISU — Plataforma de gestión de ventas y pagos",
+      "summary": "Plataforma SaaS para gestionar ventas y pagos de un negocio con historial de transacciones, analítica, ticketing y API pública. Proyecto de la Universidad de Alicante.",
+      "body": "## Resumen\n\nPlataforma SaaS para gestionar ventas y pagos de un negocio: historial completo de transacciones, panel de analítica avanzado, soporte de ticketing y API pública para integraciones. Desarrollado como proyecto de la Universidad de Alicante.\n\n## Características principales\n\n- **Historial de transacciones**: Registro completo de ventas y eventos de pago.\n- **Panel de analítica**: Métricas de negocio e insights visuales.\n- **Pagos seguros**: Procesamiento de pagos con trazabilidad.\n- **API REST pública**: Endpoints para integraciones de terceros.\n\n## Público objetivo\n\nPequeñas y medianas empresas y comercios que necesitan seguimiento de ventas, pagos y transacciones con analítica en un solo panel.\n\n## Oportunidad de negocio\n\nNiveles de suscripción SaaS, con posibles comisiones por transacción/procesamiento y acceso de pago a la API para integraciones de terceros.\n\n## Stack tecnológico\n\n- **Backend:** Laravel (PHP)\n- **Frontend:** Blade templates + jQuery\n- **Base de datos:** MySQL\n- **API:** REST (API pública para integraciones)"
+    },
+    "tusofertasdehoy": {
+      "title": "TusOfertasDeHoy — Agregador de ofertas diarias",
+      "summary": "Plataforma web que agrega y muestra ofertas y chollos diarios de productos con enlaces de afiliación.",
+      "body": "## Resumen\n\nPlataforma web que agrega y muestra ofertas y chollos diarios de productos con enlaces de afiliación. Los usuarios pueden explorar ofertas curadas, comparar precios y seguir enlaces a tiendas asociadas.\n\n## Características principales\n\n- **Listado de ofertas**: Catálogo actualizado diariamente de ofertas de productos.\n- **Tarjetas de producto con precios**: Tarjetas estructuradas con precios y metadatos de la oferta.\n- **Integración de afiliados**: Enlaces de seguimiento a retailers asociados.\n\n## Público objetivo\n\nCazadores de chollos y ofertas en España que buscan ofertas diarias curadas de productos.\n\n## Oportunidad de negocio\n\nComisiones de afiliación (Amazon y otros) más publicidad display. La automatización con n8n mantiene el contenido fresco con coste marginal casi nulo, lo que hace el modelo escalable.\n\n## Stack tecnológico\n\n- **Frontend:** Next.js\n- **Backend:** Node.js 18+\n- **Base de datos:** MySQL\n- **Automatización:** n8n (agregación y actualización automatizada de ofertas)"
+    }
+  },
+  "contact": {
+    "title": "Contacto",
+    "description": "Envía un mensaje sobre un proyecto, colaboración u oportunidad.",
+    "fields": {
+      "name": "Nombre",
+      "email": "Email",
+      "message": "Mensaje"
+    },
+    "placeholders": {
+      "name": "Tu nombre",
+      "email": "tu@email.com",
+      "message": "Cuéntame tu proyecto o idea..."
+    },
+    "hints": {
+      "name": "{{current}}/{{max}} · mín. {{min}}",
+      "email": "Responderé a esta dirección",
+      "message": "{{current}}/{{max}} · mín. {{min}}"
+    },
+    "buttons": {
+      "loading": "Cargando...",
+      "sending": "Enviando...",
+      "send": "Enviar mensaje"
+    },
+    "success": {
+      "title": "Mensaje enviado",
+      "description": "Gracias por escribir. Te responderé pronto."
+    },
+    "errors": {
+      "formInvalid": "Corrige los campos marcados antes de enviar.",
+      "initFailed": "No se pudo inicializar el formulario.",
+      "sendFailed": "No se pudo enviar tu mensaje.",
+      "network": "Error de red. Comprueba tu conexión e inténtalo de nuevo.",
+      "sessionExpired": "Tu sesión expiró. Recarga la página e inténtalo de nuevo.",
+      "rateLimit": "Demasiadas solicitudes. Espera 15 minutos antes de intentarlo de nuevo.",
+      "server": "No se pudo enviar el mensaje. Inténtalo de nuevo en unos minutos.",
+      "fields": {
+        "name": {
+          "required": "El nombre es obligatorio.",
+          "min": "El nombre debe tener al menos {{min}} caracteres (ahora {{current}}).",
+          "max": "El nombre debe tener como máximo {{max}} caracteres (ahora {{current}})."
+        },
+        "email": {
+          "required": "El email es obligatorio.",
+          "invalid": "Introduce un email válido (p. ej. nombre@dominio.com).",
+          "max": "El email debe tener como máximo {{max}} caracteres."
+        },
+        "message": {
+          "required": "El mensaje es obligatorio.",
+          "min": "El mensaje debe tener al menos {{min}} caracteres (ahora {{current}}).",
+          "max": "El mensaje debe tener como máximo {{max}} caracteres (ahora {{current}})."
+        }
+      }
+    }
+  },
+  "cv": {
+    "subtitle": "Ingeniero full-stack e IA — vista previa o descarga abajo.",
+    "open": "Abrir",
+    "download": "Descargar",
+    "downloadName": "Carlos-Robles-CV-2026.pdf"
+  },
+  "theme": {
+    "switchTo": "Cambiar a modo {{mode}}",
+    "light": "claro",
+    "dark": "oscuro"
+  },
+  "notFound": {
+    "code": "404",
+    "title": "Página no encontrada",
+    "description": "La página que buscas no existe."
+  },
+  "social": {
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "email": "Email"
+  },
+  "dates": {
+    "justNow": "ahora mismo",
+    "minutesAgo": "hace {{count}} min",
+    "hoursAgo": "hace {{count}} h",
+    "daysAgo": "hace {{count}} d"
+  }
+}
