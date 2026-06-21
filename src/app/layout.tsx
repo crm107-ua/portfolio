@@ -125,6 +125,11 @@ export default async function RootLayout({
             `,
           }}
         />
+        <script
+          defer
+          data-domain="carlosrobles.es"
+          src="https://analytics.carlosrobles.es/js/script.js"
+        />
       </head>
       <Providers initialLocale={initialLocale}>
         <Column
