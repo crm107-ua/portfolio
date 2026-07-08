@@ -48,7 +48,16 @@ export function ProjectDetailView({
   const avatars = team?.map((member) => ({ src: member.avatar })) || [];
 
   return (
-    <Column as="section" maxWidth="m" horizontal="center" gap="l">
+    <Column
+      as="section"
+      maxWidth="m"
+      fillWidth
+      minWidth={0}
+      horizontal="center"
+      gap="l"
+      paddingX="l"
+      className="detail-view"
+    >
       <Schema
         as="blogPosting"
         baseURL={baseURL}
@@ -75,8 +84,8 @@ export function ProjectDetailView({
         ) : null}
         <Heading variant="display-strong-m">{project.title}</Heading>
       </Column>
-      <Row marginBottom="32" horizontal="center">
-        <Row gap="16" vertical="center">
+      <Row marginBottom="32" horizontal="center" wrap>
+        <Row gap="16" vertical="center" wrap>
           {team && team.length > 0 ? <AvatarGroup reverse avatars={avatars} size="s" /> : null}
           <Text variant="label-default-m" onBackground="brand-weak">
             {team?.map((member, idx) => (
@@ -93,13 +102,15 @@ export function ProjectDetailView({
         </Row>
       </Row>
       {images.length > 0 ? (
-        <PortfolioImageGallery
-          slug={slug}
-          priority
-          images={images}
-          alt={project.title}
-          link={link}
-        />
+        <Column fillWidth minWidth={0}>
+          <PortfolioImageGallery
+            slug={slug}
+            priority
+            images={images}
+            alt={project.title}
+            link={link}
+          />
+        </Column>
       ) : null}
       {children}
       <ScrollToHash />
@@ -111,7 +122,7 @@ export function ProjectRelatedHeading() {
   const { t } = useI18n();
 
   return (
-    <Column fillWidth gap="40" horizontal="center" marginTop="40">
+    <Column fillWidth gap="40" horizontal="center" marginTop="40" paddingX="l">
       <Line maxWidth="40" />
       <Heading as="h2" variant="heading-strong-xl" marginBottom="24">
         {t("work.relatedProjects")}

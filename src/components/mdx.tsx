@@ -63,7 +63,7 @@ function createImage({ alt, src, ...props }: MediaProps & { src: string }) {
   }
 
   return (
-    <Column marginTop="8" marginBottom="16" fillWidth>
+    <Column marginTop="8" marginBottom="16" fillWidth minWidth={0}>
       <PortfolioImage src={src} alt={alt ?? ""} title={props.title as string | undefined} />
     </Column>
   );
@@ -123,23 +123,30 @@ function createCodeBlock(props: any) {
     const label = language.charAt(0).toUpperCase() + language.slice(1);
 
     return (
-      <CodeBlock
-        marginTop="8"
-        marginBottom="16"
-        codes={[
-          {
-            code: children,
-            language,
-            label,
-          },
-        ]}
-        copyButton={true}
-      />
+      <Column fillWidth minWidth={0} className="detail-article">
+        <CodeBlock
+          marginTop="8"
+          marginBottom="16"
+          codes={[
+            {
+              code: children,
+              language,
+              label,
+            },
+          ]}
+          copyButton={true}
+        />
+      </Column>
     );
   }
 
   // Fallback for other pre tags or empty code blocks
-  return <pre {...props} />;
+  return (
+    <pre
+      {...props}
+      style={{ maxWidth: "100%", overflowX: "auto", ...(props.style ?? {}) }}
+    />
+  );
 }
 
 function createList(as: "ul" | "ol") {
