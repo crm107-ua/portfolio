@@ -1,5 +1,8 @@
 .frame {
   width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
   border: 1px solid var(--neutral-border-medium);
   border-radius: var(--radius-m);
   overflow: hidden;

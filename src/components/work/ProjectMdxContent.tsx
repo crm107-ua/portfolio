@@ -11,7 +11,14 @@ export function ProjectMdxContent({ slug }: ProjectMdxContentProps) {
   const dictionaries = getAllDictionaries();
 
   return (
-    <Column style={{ margin: "auto" }} as="article" maxWidth="xs">
+    <Column
+      style={{ margin: "auto" }}
+      as="article"
+      maxWidth="xs"
+      fillWidth
+      minWidth={0}
+      className="detail-article"
+    >
       {locales.map((locale) => {
         const project =
           dictionaries[locale].projects[slug as keyof (typeof dictionaries)["en"]["projects"]];

@@ -71,10 +71,19 @@ export default async function Blog({ params }: { params: Promise<{ slug: string 
     })) || [];
 
   return (
-    <Row fillWidth>
+    <Row fillWidth minWidth={0} horizontal="center" className="detail-view">
       <Row maxWidth={12} m={{ hide: true }} />
-      <Row fillWidth horizontal="center">
-        <Column as="section" maxWidth="m" horizontal="center" gap="l" paddingTop="24">
+      <Row fillWidth minWidth={0} horizontal="center">
+        <Column
+          as="section"
+          maxWidth="m"
+          fillWidth
+          minWidth={0}
+          horizontal="center"
+          gap="l"
+          paddingTop="24"
+          paddingX="l"
+        >
           <Schema
             as="blogPosting"
             baseURL={baseURL}
@@ -112,8 +121,8 @@ export default async function Blog({ params }: { params: Promise<{ slug: string 
               </Text>
             )}
           </Column>
-          <Row marginBottom="32" horizontal="center">
-            <Row gap="16" vertical="center">
+          <Row marginBottom="32" horizontal="center" wrap>
+            <Row gap="16" vertical="center" wrap>
               <Avatar size="s" src={person.avatar} />
               <Text variant="label-default-m" onBackground="brand-weak">
                 {person.name}
@@ -121,19 +130,21 @@ export default async function Blog({ params }: { params: Promise<{ slug: string 
             </Row>
           </Row>
           {post.metadata.image && (
-            <Media
-              src={post.metadata.image}
-              alt={post.metadata.title}
-              aspectRatio="16/9"
-              priority
-              sizes="(min-width: 768px) 100vw, 768px"
-              border="neutral-alpha-weak"
-              radius="l"
-              marginTop="12"
-              marginBottom="8"
-            />
+            <Column fillWidth minWidth={0}>
+              <Media
+                src={post.metadata.image}
+                alt={post.metadata.title}
+                aspectRatio="16/9"
+                priority
+                sizes="(max-width: 768px) 100%, 768px"
+                border="neutral-alpha-weak"
+                radius="l"
+                marginTop="12"
+                marginBottom="8"
+              />
+            </Column>
           )}
-          <Column as="article" maxWidth="s">
+          <Column as="article" maxWidth="s" fillWidth minWidth={0} className="detail-article">
             <CustomMDX source={post.content} />
           </Column>
           
