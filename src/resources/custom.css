@@ -74,3 +74,34 @@ img[src*="/images/gallery/"] {
   object-fit: contain !important;
   object-position: center !important;
 }
+
+/* Detail pages (blog / project): contain content and prevent lateral overflow on mobile */
+.detail-view {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.detail-article {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.detail-article pre,
+.detail-article table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.detail-article img,
+.detail-article video,
+.detail-article iframe {
+  max-width: 100%;
+  height: auto;
+}

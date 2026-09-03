@@ -66,7 +66,7 @@ export default async function Project({
   }
 
   return (
-    <Column horizontal="center">
+    <Column horizontal="center" fillWidth minWidth={0} className="detail-view">
       <ProjectDetailView
         slug={post.slug}
         publishedAt={post.metadata.publishedAt}
