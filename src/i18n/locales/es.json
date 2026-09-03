@@ -38,7 +38,10 @@
     "name": "Carlos Robles",
     "role": "Ingeniero Full-Stack e IA",
     "location": "Europe/Madrid",
-    "languages": ["Español (nativo)", "Inglés (B2)"]
+    "languages": [
+      "Español (nativo)",
+      "Inglés (B2)"
+    ]
   },
   "home": {
     "headline": "Ingeniero full-stack que construye aplicaciones web e IA aplicada.",
@@ -137,6 +140,109 @@
       "title": "Warera — Un web OS completo para comunidades gaming",
       "summary": "Sistema operativo web completo para comunidades de videojuegos online: indexación de archivos y capa API que interconecta múltiples juegos y Discord, todo en un solo lugar.",
       "body": "## Resumen\n\nWarera es un sistema operativo web completo para comunidades de videojuegos online. Ofrece un entorno web tipo escritorio con indexación de archivos y una capa API que interconecta múltiples juegos y Discord, para que una comunidad gestione datos, coordine estrategia y ejecute herramientas desde un solo lugar. La autenticación se realiza con Discord, de modo que los miembros acceden con la cuenta que ya utilizan.\n\n## Características principales\n\n- Entorno web OS con interfaz tipo escritorio y ventanas\n- Indexación y gestión de archivos\n- Interconexión API entre múltiples juegos y Discord\n- Paneles estratégicos en tiempo real para coordinación comunitaria\n- Inicio de sesión único con Discord\n\n## Público objetivo\n\nComunidades competitivas de videojuegos online — clanes y alianzas que coordinan por Discord y necesitan herramientas centralizadas. El primer despliegue sirve a la comunidad WarEra España.\n\n## Oportunidad de negocio\n\nModelo de suscripción por comunidad, más un modelo white-label / multi-juego donde el mismo web OS puede desplegarse para comunidades de otros juegos. La distribución nativa en Discord mantiene bajo el coste de adquisición de usuarios.\n\n## Stack tecnológico\n\n- **Framework:** Next.js (App Router)\n- **API:** tRPC (tipado de extremo a extremo)\n- **Auth:** NextAuth con proveedor Discord\n- **Base de datos:** MySQL con Prisma ORM\n- **Estilos:** Tailwind CSS"
+    },
+    "travify": {
+      "title": "Travify — Presupuestos de viaje offline y rutas óptimas de cambio",
+      "summary": "App Flutter para nómadas digitales: gestiona presupuestos de viaje sin conexión y recibe sugerencias claras sobre la mejor forma de cambiar divisas, según tus comisiones e historial reales.",
+      "body": "## Resumen\n\nTravify es una app Flutter multiplataforma para **nómadas digitales** y viajeros frecuentes que necesitan presupuestos multi-divisa serios sin depender de la nube. Todo funciona **local-first** sobre SQLite: viajes, presupuestos dinámicos, gastos, ingresos, cambios de divisa y gráficas. Las tasas oficiales pueden sincronizarse de forma opcional (máximo una vez al día) con ExchangeRate-API cuando hay red.\n\nDesarrollada como TFG de Ingeniería Informática en la Universidad de Alicante y publicada en la App Store (*Travel Smart, Track everything.*).\n\n## Características principales\n\n- Crear y gestionar viajes (pasados / activos / futuros) sin solapes de fechas\n- Presupuestos dinámicos con límite máximo, objetivo deseado y ajuste automático\n- Gastos e ingresos por categoría — incluidos **gastos amortizables** e **ingresos recurrentes**\n- Registro de cambios de divisa con tasas y comisiones reales\n- Sugerencias inteligentes sobre la mejor forma de cambiar divisas — también sin conexión\n- Gráficas de analítica (pastel, líneas, etc.) de gastos, ingresos y cambios\n- Preferencias: moneda base, tema, bloqueo con PIN e interfaz en 10 idiomas\n\n## Cómo encuentra la mejor ruta de cambio\n\nCambiar dinero de viaje casi nunca es un camino recto: bancos, aeropuertos y casas de cambio tienen tasas y comisiones distintas. Travify te ayuda a elegir mejor aprendiendo de **tus propios cambios reales** — y funciona **aunque no tengas internet**.\n\nLa idea, en palabras sencillas:\n\n1. **Recuerda lo que realmente recibiste** — cada vez que registras un cambio en la app, Travify anota cuánto enviaste, cuánto te dieron y la comisión. Con el tiempo se hace una idea realista de lo que te cuesta cambiar en la práctica.\n\n2. **Tu historial personal tiene prioridad** — si ya cambiaste euros a dólares o a yenes, Travify confía más en esos resultados tuyos que en una tasa genérica de internet.\n\n3. **Mira más allá de un solo cambio** — a veces pasar por dos o tres monedas (por ejemplo euros → dólares → yenes) te deja más dinero que un cambio directo. La app explora esas cadenas cortas (hasta tres pasos).\n\n4. **Te muestra las mejores opciones** — ves las rutas ordenadas según cuánto acabarías recibiendo, incluyendo el cambio directo cuando es el ganador.\n\n**Un ejemplo sencillo:** quieres convertir 100 euros a yenes japoneses. Travify puede sugerirte pasar primero por dólares si, según tus comisiones y tasas anteriores, ese camino te conviene más que cambiar euros a yenes directamente.\n\nSin configuración complicada: vas registrando tus cambios y las recomendaciones mejoran según *cómo* viajas tú.\n\n## Público objetivo\n\nNómadas digitales, teletrabajadores multi-país, mochileros y viajeros de negocio que manejan varias divisas y quieren herramientas offline realistas — no apps de finanzas personales genéricas.\n\n## Contexto y oportunidad\n\nTFG de la Universidad de Alicante (junio 2025) con ángulo de producto freemium: desbloqueo único (~2,99 €) sin anuncios y posibles partnerships de turismo. Diferenciación frente a Mint / YNAB / PocketGuard: **offline de verdad** más **rutas FX multi-salto conscientes de comisión** basadas en el histórico real del usuario.\n\n## Stack tecnológico\n\n- **UI / runtime:** Flutter + Dart\n- **Persistencia:** SQLite (`sqflite`) con DAOs\n- **Estado:** Provider (Modelo–Vista–Servicio + Repository)\n- **API FX:** ExchangeRate-API (opcional; base EUR)\n- **Gráficas:** Syncfusion Flutter Charts\n- **i18n:** easy_localization (10 idiomas)\n- **Otros:** connectivity_plus, shared_preferences, image_picker, Lottie",
+      "algorithmPanel": {
+        "eyebrow": "Deep dive",
+        "title": "Algoritmo de rutas de cambio",
+        "lead": "Un pipeline 100 % offline en ChangeService: aprende de tus cambios reales, construye un grafo de conversión y busca caminos cortos multi-salto para maximizar lo que recibes.",
+        "stepsTitle": "Flujo",
+        "steps": [
+          {
+            "title": "Preparar historial",
+            "body": "Los cambios pasados se convierten en un mapa histórico: origen, destino, importes y comisión de cada operación."
+          },
+          {
+            "title": "Tasas efectivas",
+            "body": "Para cada par de divisas se promedia la tasa real que obtuviste tras comisiones — no la tasa de escaparate."
+          },
+          {
+            "title": "Comisiones medias",
+            "body": "La comisión por par se promedia del historial (2 % por defecto si no hay datos), pudiendo mezclarse con la que introduces ahora."
+          },
+          {
+            "title": "EUR como pivote",
+            "body": "Las tasas oficiales se guardan solo como EUR → X. Cualquier par A → B sin histórico se deriva vía euro, bajando de n² pares a n tasas."
+          },
+          {
+            "title": "Construir el grafo",
+            "body": "Las monedas son nodos; las aristas dirigidas llevan una tasa neta. Tu historial personal siempre gana a las tasas oficiales estimadas."
+          },
+          {
+            "title": "Buscar y ordenar",
+            "body": "Un DFS de profundidad limitada explora rutas de hasta 3 saltos sin repetir monedas, simula un importe y devuelve el top 3."
+          }
+        ],
+        "formulasTitle": "Fórmulas clave",
+        "formulas": [
+          {
+            "label": "Tasa efectiva (historial)",
+            "latex": "\\mathrm{rate}_{\\mathrm{eff}} = \\dfrac{\\mathrm{cantidad\\ recibida}}{\\mathrm{cantidad\\ enviada} \\times (1 - \\mathrm{comision})}"
+          },
+          {
+            "label": "Tasa base vía EUR",
+            "latex": "\\mathrm{baseRate}_{A \\to B} = \\dfrac{\\mathrm{rate}_{EUR \\to B}}{\\mathrm{rate}_{EUR \\to A}}"
+          },
+          {
+            "label": "Peso neto de arista",
+            "latex": "\\mathrm{netRate} = \\mathrm{baseRate} \\times (1 - \\mathrm{comision})"
+          }
+        ],
+        "priorityTitle": "Prioridad de tasas",
+        "priorityItems": [
+          "1 — Tasa efectiva media de tu historial real para ese par",
+          "2 — Tasa oficial estimada vía pivote EUR si no hay historial"
+        ],
+        "exampleTitle": "Ejemplo concreto",
+        "exampleLead": "Convertir 100 EUR → JPY. Rutas ordenadas por valor en destino:",
+        "exampleRows": [
+          {
+            "path": "EUR → USD → JPY",
+            "value": "14.050",
+            "note": "Óptima"
+          },
+          {
+            "path": "EUR → GBP → JPY",
+            "value": "13.800",
+            "note": "2ª"
+          },
+          {
+            "path": "EUR → JPY",
+            "value": "13.200",
+            "note": "Directa"
+          }
+        ],
+        "exampleFoot": "La ruta directa no siempre gana: un multi-salto corto puede ser mejor cuando comisiones y tasas reales encajan.",
+        "complexityTitle": "Complejidad y recursos",
+        "complexity": [
+          {
+            "label": "Búsqueda de rutas",
+            "value": "O(nᵈ)",
+            "detail": "n ≈ 31 monedas, profundidad d = 3 (máx. 3 saltos). Viable en móvil."
+          },
+          {
+            "label": "Almacén de tasas oficiales",
+            "value": "O(n)",
+            "detail": "El pivote EUR evita guardar los n² pares."
+          },
+          {
+            "label": "Construcción del grafo (antes)",
+            "value": "O(n²) → O(n)",
+            "detail": "Menos tasas que pedir, guardar y combinar al derivar A→B."
+          },
+          {
+            "label": "Huella en memoria",
+            "value": "Local-first",
+            "detail": "Historial + tasas oficiales en SQLite; la búsqueda corre en RAM del dispositivo."
+          }
+        ],
+        "serviceNote": "Implementado en ChangeService: calcularTasasEfectivasMedias, calcularComisionMedia, construirGrafoPriorizandoReal, enumerarRutasCambio.",
+        "examplePathHeader": "Ruta",
+        "exampleValueHeader": "JPY"
+      }
     },
     "lesly": {
       "title": "Lesly — App web full-stack con auth y panel de administración",

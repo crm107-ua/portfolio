@@ -5,9 +5,10 @@ import { ProjectsList } from "./ProjectsList";
 interface ProjectsProps {
   range?: [number, number?];
   exclude?: string[];
+  showSeparators?: boolean;
 }
 
-export function Projects({ range, exclude }: ProjectsProps) {
+export function Projects({ range, exclude, showSeparators = false }: ProjectsProps) {
   let allProjects = getPosts(["src", "app", "work", "projects"]);
 
   if (exclude && exclude.length > 0) {
@@ -34,8 +35,8 @@ export function Projects({ range, exclude }: ProjectsProps) {
   }));
 
   return (
-    <Column fillWidth gap="xl" marginBottom="40" paddingX="l">
-      <ProjectsList posts={items} />
+    <Column fillWidth gap="l" marginBottom="0" paddingX="l">
+      <ProjectsList posts={items} showSeparators={showSeparators} />
     </Column>
   );
 }

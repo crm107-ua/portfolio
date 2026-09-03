@@ -5,6 +5,7 @@ export { ProjectCard } from "@/components/ProjectCard";
 export { PortfolioImage } from "@/components/PortfolioImage";
 export { PortfolioImageGallery } from "@/components/PortfolioImageGallery";
 export { BrowserFrame } from "@/components/BrowserFrame";
+export { PhoneFrame } from "@/components/PhoneFrame";
 export { ZoomableImage } from "@/components/ZoomableImage";
 export { ImageLightbox } from "@/components/ImageLightbox";
 export { HeadingLink } from "@/components/HeadingLink";

@@ -1,0 +1,33 @@
+.separator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 0;
+  padding-block: var(--static-space-20);
+}
+
+.line {
+  width: min(100%, 12rem);
+  height: 1px;
+  border: none;
+  margin: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--neutral-border-medium) 20%,
+    var(--neutral-border-medium) 80%,
+    transparent 100%
+  );
+  opacity: 0.7;
+}
+
+@media (min-width: 768px) {
+  .separator {
+    padding-block: var(--static-space-24);
+  }
+
+  .line {
+    width: min(100%, 16rem);
+  }
+}

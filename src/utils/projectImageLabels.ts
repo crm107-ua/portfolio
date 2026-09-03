@@ -1,5 +1,3 @@
-import path from "path";
-
 export function displayHostFromUrl(url?: string): string {
   if (!url) return "Preview";
 
@@ -10,13 +8,33 @@ export function displayHostFromUrl(url?: string): string {
   }
 }
 
+function fileBaseName(imageSrc: string): string {
+  const withoutQuery = imageSrc.split("?")[0] ?? imageSrc;
+  const file = withoutQuery.split("/").pop() ?? "";
+  return file.replace(/\.[^.]+$/, "");
+}
+
+const TRAVIFY_SCREEN_LABELS: Record<string, string> = {
+  travify: "Home",
+  "travify-2": "Ready",
+  "travify-3": "Income",
+  "travify-4": "Expenses",
+  "travify-5": "FX",
+  "travify-6": "Exchange",
+  "travify-7": "Charts",
+};
+
 export function getProjectTabLabel(
   imageSrc: string,
   slug: string,
   projectLink?: string,
 ): string {
   const host = displayHostFromUrl(projectLink);
-  const base = path.basename(imageSrc, path.extname(imageSrc));
+  const base = fileBaseName(imageSrc);
+
+  if (slug === "travify" && TRAVIFY_SCREEN_LABELS[base]) {
+    return TRAVIFY_SCREEN_LABELS[base];
+  }
 
   if (base === slug) return host;
 

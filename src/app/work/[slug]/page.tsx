@@ -4,11 +4,10 @@ import { getPosts } from "@/utils/utils";
 import { Meta } from "@once-ui-system/core";
 import {
   ProjectDetailView,
-  ProjectRelatedHeading,
 } from "@/components/work/ProjectDetailView";
 import { ProjectMdxContent } from "@/components/work/ProjectMdxContent";
 import { ProjectMdxLocaleSync } from "@/components/work/ProjectMdxLocaleSync";
-import { Projects } from "@/components/work/Projects";
+import { TravifyAlgorithmSection } from "@/components/work/TravifyAlgorithmSection";
 import { getDictionary, getServerLocale } from "@/i18n/server";
 import { baseURL, work } from "@/resources";
 import { Metadata } from "next";
@@ -77,9 +76,8 @@ export default async function Project({
       >
         <ProjectMdxLocaleSync />
         <ProjectMdxContent slug={post.slug} />
+        {post.slug === "travify" ? <TravifyAlgorithmSection /> : null}
       </ProjectDetailView>
-      <ProjectRelatedHeading />
-      <Projects exclude={[post.slug]} range={[2]} />
     </Column>
   );
 }

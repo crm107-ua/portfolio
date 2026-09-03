@@ -22,7 +22,7 @@ export default function Work() {
   return (
     <Column maxWidth="m" horizontal="center">
       <WorkView />
-      <Projects />
+      <Projects showSeparators />
     </Column>
   );
 }

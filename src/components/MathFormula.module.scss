@@ -1,0 +1,45 @@
+.figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--static-space-10);
+  min-width: 0;
+}
+
+.label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--neutral-on-background-weak);
+  font-family: var(--font-family-label);
+}
+
+.formula {
+  overflow-x: auto;
+  padding: var(--static-space-16) var(--static-space-20);
+  border-radius: var(--radius-m);
+  border: 1px solid var(--neutral-border-weak);
+  background: color-mix(in srgb, var(--page-background) 55%, transparent);
+  text-align: center;
+  -webkit-overflow-scrolling: touch;
+
+  :global(.katex) {
+    font-size: 1.05em;
+    color: var(--neutral-on-background-strong);
+  }
+
+  :global(.katex-display) {
+    margin: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .formula {
+    padding: var(--static-space-12) var(--static-space-14);
+
+    :global(.katex) {
+      font-size: 0.95em;
+    }
+  }
+}

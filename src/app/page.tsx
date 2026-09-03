@@ -20,12 +20,11 @@ export async function generateMetadata() {
 
 export default function Home() {
   return (
-    <Column maxWidth="m" gap="xl" horizontal="center">
+    <Column maxWidth="m" gap="l" horizontal="center">
       <HomeView />
       <RevealFx translateY="16" delay={0.6}>
-        <Projects range={[1, 1]} />
+        <Projects showSeparators />
       </RevealFx>
-      <Projects range={[2]} />
     </Column>
   );
 }

@@ -3,7 +3,6 @@
 import {
   Column,
   Heading,
-  Line,
   Schema,
   SmartLink,
   Text,
@@ -103,19 +102,6 @@ export function ProjectDetailView({
       ) : null}
       {children}
       <ScrollToHash />
-    </Column>
-  );
-}
-
-export function ProjectRelatedHeading() {
-  const { t } = useI18n();
-
-  return (
-    <Column fillWidth gap="40" horizontal="center" marginTop="40">
-      <Line maxWidth="40" />
-      <Heading as="h2" variant="heading-strong-xl" marginBottom="24">
-        {t("work.relatedProjects")}
-      </Heading>
     </Column>
   );
 }

@@ -38,7 +38,10 @@
     "name": "Carlos Robles",
     "role": "Full-Stack & AI Engineer",
     "location": "Europe/Madrid",
-    "languages": ["Spanish (Native)", "English (B2)"]
+    "languages": [
+      "Spanish (Native)",
+      "English (B2)"
+    ]
   },
   "home": {
     "headline": "Full-stack engineer building web apps and applied AI.",
@@ -137,6 +140,109 @@
       "title": "Warera — A complete web OS for gaming communities",
       "summary": "A complete web operating system for online gaming communities: file indexing and an API layer interconnecting multiple games and Discord, all in one place.",
       "body": "## Overview\n\nWarera is a complete web operating system for online gaming communities. It provides a desktop-like web environment with file indexing and an API layer that interconnects multiple games and Discord, so a community can manage data, coordinate strategy and run tools from a single place. Authentication is handled through Discord, so members log in with the account they already use.\n\n## Key Features\n\n- Web OS environment with a desktop-like, windowed UI\n- File indexing and management\n- API interconnection across multiple games and Discord\n- Real-time strategic dashboards for community coordination\n- Discord-based single sign-on\n\n## Target Audience\n\nCompetitive online gaming communities — clans and alliances that coordinate through Discord and need centralized tooling. The first deployment serves the WarEra España community.\n\n## Business Opportunity\n\nA subscription model per community, plus a white-label / multi-game model where the same web OS can be deployed for other games' communities. Discord-native distribution keeps user acquisition cost low.\n\n## Tech Stack\n\n- **Framework:** Next.js (App Router)\n- **API:** tRPC (end-to-end type safety)\n- **Auth:** NextAuth with Discord provider\n- **Database:** MySQL with Prisma ORM\n- **Styling:** Tailwind CSS"
+    },
+    "travify": {
+      "title": "Travify — Offline Trip Budgeting & Smart Currency Routes",
+      "summary": "Flutter app for digital nomads: manage trip budgets offline and get clear suggestions for the best way to exchange currencies — based on your real fees and history.",
+      "body": "## Overview\n\nTravify is a cross-platform Flutter app for **digital nomads** and frequent travelers who need serious multi-currency budgeting without relying on the cloud. Everything runs **local-first** on SQLite: trips, dynamic budgets, expenses, income, currency exchanges, and charts. Official FX rates can sync optionally (at most once per day) via ExchangeRate-API when the device is online.\n\nBuilt as a Computer Engineering TFG at the University of Alicante and published on the App Store (*Travel Smart, Track everything.*).\n\n## Key Features\n\n- Create and manage trips (past / active / future) with non-overlapping dates\n- Dynamic budgets with max limit, desired target, and automatic adjustment\n- Expenses and income by category — including **amortizable expenses** and **recurring income**\n- Currency exchange log with real rates and commissions\n- Smart suggestions for the best way to exchange currencies — even offline\n- Analytics charts (pie, line, and more) for spending, income, and exchanges\n- Preferences: base currency, theme, PIN lock, and 10 languages\n\n## Finding the best currency exchange route\n\nChanging money while traveling is rarely a straight path: banks, airports, and street exchanges all charge different rates and fees. Travify helps you choose smarter by learning from **your own past exchanges** — and it works even **without internet**.\n\nHere is the idea, in plain terms:\n\n1. **It remembers what you actually got** — every time you exchange money in the app, Travify notes how much you sent, how much you received, and the commission. Over time it builds a realistic picture of what those exchanges cost you.\n\n2. **Your real history comes first** — if you already exchanged euros for dollars or yen, Travify trusts those personal results more than a generic market rate from the internet.\n\n3. **It looks beyond a single swap** — sometimes changing money in two or three steps (for example euros → dollars → yen) leaves you with more than a direct exchange. The app explores those short chains (up to three steps).\n\n4. **It shows you the top options** — you see the best routes ranked by how much you would end up with, including a direct exchange when that is the winner.\n\n**A simple example:** you want to turn 100 euros into Japanese yen. Travify might suggest going through US dollars first if, based on your past fees and rates, that path beats changing euros to yen directly.\n\nNo complex setup: you keep logging your exchanges, and the recommendations get better for the way *you* travel.\n\n## Target Audience\n\nDigital nomads, multi-country remote workers, backpackers, and business travelers who juggle several currencies and want realistic offline tools — not generic personal-finance apps.\n\n## Context & Opportunity\n\nUniversity of Alicante TFG (June 2025) with a freemium product angle: one-time unlock (~€2.99) without ads, optional tourism partnerships. Differentiator vs Mint / YNAB / PocketGuard: **true offline** plus **commission-aware multi-hop FX routing** grounded in the user's own exchange history.\n\n## Tech Stack\n\n- **UI / runtime:** Flutter + Dart\n- **Persistence:** SQLite (`sqflite`) with DAOs\n- **State:** Provider (Model–View–Service + Repository)\n- **FX API:** ExchangeRate-API (optional; EUR base)\n- **Charts:** Syncfusion Flutter Charts\n- **i18n:** easy_localization (10 languages)\n- **Other:** connectivity_plus, shared_preferences, image_picker, Lottie",
+      "algorithmPanel": {
+        "eyebrow": "Deep dive",
+        "title": "Currency route algorithm",
+        "lead": "A fully offline pipeline in ChangeService: learn from your real exchanges, build a conversion graph, then search short multi-hop paths to maximize what you receive.",
+        "stepsTitle": "Pipeline",
+        "steps": [
+          {
+            "title": "Prepare history",
+            "body": "Past exchanges become a historical map: origin, destination, amounts, and commission for each transaction."
+          },
+          {
+            "title": "Effective rates",
+            "body": "For every currency pair, average the true rate you got after fees — not the sticker rate."
+          },
+          {
+            "title": "Average fees",
+            "body": "Commission per pair is averaged from your history (default 2% if unknown), optionally blended with the fee you type now."
+          },
+          {
+            "title": "EUR as pivot",
+            "body": "Official rates are stored only as EUR → X. Any missing A → B pair is derived through euro, cutting storage from n² pairs to n rates."
+          },
+          {
+            "title": "Build the graph",
+            "body": "Currencies are nodes; directed edges carry a net rate. Your personal history always beats estimated official rates."
+          },
+          {
+            "title": "Search & rank",
+            "body": "Limited-depth DFS explores routes up to 3 hops without repeating currencies, simulates an amount, and returns the top 3 paths."
+          }
+        ],
+        "formulasTitle": "Core formulas",
+        "formulas": [
+          {
+            "label": "Effective rate (from history)",
+            "latex": "\\mathrm{rate}_{\\mathrm{eff}} = \\dfrac{\\mathrm{amount\\ received}}{\\mathrm{amount\\ sent} \\times (1 - \\mathrm{commission})}"
+          },
+          {
+            "label": "Base rate via EUR",
+            "latex": "\\mathrm{baseRate}_{A \\to B} = \\dfrac{\\mathrm{rate}_{EUR \\to B}}{\\mathrm{rate}_{EUR \\to A}}"
+          },
+          {
+            "label": "Net edge weight",
+            "latex": "\\mathrm{netRate} = \\mathrm{baseRate} \\times (1 - \\mathrm{commission})"
+          }
+        ],
+        "priorityTitle": "Rate priority",
+        "priorityItems": [
+          "1 — Average effective rate from your real history for that pair",
+          "2 — Official rate estimated via the EUR pivot when no history exists"
+        ],
+        "exampleTitle": "Worked example",
+        "exampleLead": "Convert 100 EUR → JPY. Routes ranked by destination value:",
+        "exampleRows": [
+          {
+            "path": "EUR → USD → JPY",
+            "value": "14,050",
+            "note": "Optimal"
+          },
+          {
+            "path": "EUR → GBP → JPY",
+            "value": "13,800",
+            "note": "2nd"
+          },
+          {
+            "path": "EUR → JPY",
+            "value": "13,200",
+            "note": "Direct"
+          }
+        ],
+        "exampleFoot": "The direct path is not always best: a short multi-hop route can win when fees and real rates align.",
+        "complexityTitle": "Complexity & resources",
+        "complexity": [
+          {
+            "label": "Route search",
+            "value": "O(nᵈ)",
+            "detail": "n ≈ 31 currencies, depth d = 3 (max 3 hops). Practical on mobile."
+          },
+          {
+            "label": "Official rates store",
+            "value": "O(n)",
+            "detail": "EUR pivot replaces storing all n² pairs."
+          },
+          {
+            "label": "Graph build (prev.)",
+            "value": "O(n²) → O(n)",
+            "detail": "Fewer rates to fetch, store, and combine when deriving A→B."
+          },
+          {
+            "label": "Memory footprint",
+            "value": "Local-first",
+            "detail": "History + official rates live in SQLite; search runs in device RAM."
+          }
+        ],
+        "serviceNote": "Implemented in ChangeService: calcularTasasEfectivasMedias, calcularComisionMedia, construirGrafoPriorizandoReal, enumerarRutasCambio.",
+        "examplePathHeader": "Path",
+        "exampleValueHeader": "JPY"
+      }
     },
     "lesly": {
       "title": "Lesly — Full-stack web app with auth & admin dashboard",

@@ -55,9 +55,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         s={{ direction: "column" }}
         fillWidth
         paddingX="s"
-        paddingTop="12"
-        paddingBottom="24"
-        gap="l"
+        paddingTop="8"
+        paddingBottom="8"
+        gap="m"
       >
         {displayTitle && (
           <Flex flex={5}>
