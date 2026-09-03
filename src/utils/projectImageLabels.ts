@@ -24,6 +24,13 @@ const TRAVIFY_SCREEN_LABELS: Record<string, string> = {
   "travify-7": "Charts",
 };
 
+const LESLY_SCREEN_LABELS: Record<string, string> = {
+  lesly: "App",
+  "lesly-2": "Profile",
+  "lesly-3": "Analytics",
+  "lesly-4": "Mobile",
+};
+
 export function getProjectTabLabel(
   imageSrc: string,
   slug: string,
@@ -34,6 +41,10 @@ export function getProjectTabLabel(
 
   if (slug === "travify" && TRAVIFY_SCREEN_LABELS[base]) {
     return TRAVIFY_SCREEN_LABELS[base];
+  }
+
+  if (slug === "lesly" && LESLY_SCREEN_LABELS[base]) {
+    return LESLY_SCREEN_LABELS[base];
   }
 
   if (base === slug) return host;
