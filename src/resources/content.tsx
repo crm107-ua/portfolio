@@ -54,7 +54,7 @@ const home: Home = {
     display: true,
     title: (
       <Row gap="12" vertical="center">
-        <strong className="ml-4">Warera</strong>
+        <strong className="ml-4">WareraOS</strong>
         <Text marginRight="4" onBackground="brand-medium">
           Featured project
         </Text>
